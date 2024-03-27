@@ -36,7 +36,6 @@ func main() {
 	fmt.Println("Введите число")
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
-		fmt.Println("Введите число")
 		input := scanner.Text()
 		if strings.ToLower(input) == "стоп" {
 			fmt.Println("До свидания")
