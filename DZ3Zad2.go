@@ -21,7 +21,7 @@ func main() {
 
 	go func() {
 		for i := 0; ; i++ {
-			fmt.Println(i * i)
+			fmt.Printf("%d^2 = %d\n", i, i*i)
 			time.Sleep(1 * time.Second)
 		}
 	}()
