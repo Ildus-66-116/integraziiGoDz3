@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -31,21 +33,23 @@ func main() {
 	go square(numbers, results)
 	go multiplyByTwo(results)
 
-	for {
+	fmt.Println("Введите число")
+	scanner := bufio.NewScanner(os.Stdin)
+	for scanner.Scan() {
 		fmt.Println("Введите число")
-		var text string
-		fmt.Scan(&text)
-		if strings.ToLower(text) == "стоп" {
+		input := scanner.Text()
+		if strings.ToLower(input) == "стоп" {
 			fmt.Println("До свидания")
 			break
 		}
-		num, err := strconv.Atoi(text)
+		num, err := strconv.Atoi(input)
 		if err != nil {
 			fmt.Println("Нужно число!!!")
 			continue
 		}
 		numbers <- num
 	}
+
 	close(numbers)
 	close(results)
 }
