@@ -18,12 +18,12 @@ import (
 func square(numbers chan int, results chan int) {
 	for num := range numbers {
 		results <- num * num
-		fmt.Printf("Возведение в квадрат: %d\n", num*num)
+		fmt.Printf("Квадрат: %d\n", num*num)
 	}
 }
 func multiplyByTwo(results chan int) {
 	for result := range results {
-		fmt.Printf("Умножение на 2: %d\n", result*2)
+		fmt.Printf("Прозведение: %d\n", result*2)
 	}
 }
 
